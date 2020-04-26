@@ -34,3 +34,4 @@ apps:
       FONTCONFIG_FILE: $SNAP/etc/fonts/fonts.conf
     plugs:
       - x11
+      - home
