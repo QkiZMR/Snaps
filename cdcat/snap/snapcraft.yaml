@@ -11,6 +11,10 @@ description: |
 grade: stable
 confinement: strict
 
+layout:
+  /etc/fonts:
+    bind: $SNAP/etc/fonts
+
 parts:
   cdcat-catalog:
     plugin: nil
