@@ -1,0 +1,27 @@
+name: autotrash-unofficial
+base: core18
+version: 0.1.5
+summary: purges files from your trash based on age and/or filename
+description: |
+  A script useful to purge files from your trash based on their age.
+  It can also be used to purge the files based on the filename
+  using a regular expression.
+  If you want use it with original name of command use:
+  sudo snap alias autotrash-unofficial autotrash
+
+grade: stable
+confinement: classic
+
+parts:
+  autotrash-unofficial:
+    plugin: nil
+    override-build: |
+      snapcraftctl build
+      cd $SNAPCRAFT_PART_INSTALL/usr/bin/
+      ln -s autotrash autotrash-unofficial
+    stage-packages:
+      - autotrash
+
+apps:
+  autotrash-unofficial:
+    command: autotrash-unofficial
