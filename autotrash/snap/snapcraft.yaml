@@ -8,9 +8,10 @@ description: |
   using a regular expression.
   If you want use it with original name of command use:
   sudo snap alias autotrash-unofficial autotrash
+  Github repo: https://github.com/QkiZMR/Snaps
 
 grade: stable
-confinement: classic
+confinement: strict
 
 parts:
   autotrash-unofficial:
@@ -22,6 +23,18 @@ parts:
     stage-packages:
       - autotrash
 
+plugs:
+  trash:
+    interface: personal-files
+    read:
+      - $HOME/.local/share/Trash
+    write:
+      - $HOME/.local/share/Trash
+
 apps:
   autotrash-unofficial:
     command: autotrash-unofficial
+    environment:
+      HOME: /home/$USER
+    plugs:
+    - trash
