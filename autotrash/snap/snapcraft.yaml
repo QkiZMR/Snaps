@@ -24,10 +24,8 @@ parts:
       - autotrash
 
 plugs:
-  trash:
+  dot-local-share-trash:
     interface: personal-files
-    read:
-      - $HOME/.local/share/Trash
     write:
       - $HOME/.local/share/Trash
 
@@ -37,4 +35,4 @@ apps:
     environment:
       HOME: /home/$USER
     plugs:
-    - trash
+      - dot-local-share-trash
