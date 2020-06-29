@@ -35,3 +35,4 @@ apps:
     plugs:
       - x11
       - home
+      - removable-media
